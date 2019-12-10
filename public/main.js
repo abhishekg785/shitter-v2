@@ -16,6 +16,15 @@ tweetForm.addEventListener('submit', event => {
         method: 'POST',
         body: JSON.stringify(tweet)
   })
+  .catch(err => {
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then(reg => {
+              return putTweet(tweet, tweet.id).then(() => {
+                  return reg.sync.register('add-tweet');
+              })
+          })
+      }
+  })
   .then(() => {
     clearForm();
     apppendTweetToPage(createTweetElement(tweet));
@@ -58,3 +67,9 @@ const clearForm = () => {
 };
 
 fetchTweets();
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then(reg => {
+        console.log(reg);
+    });
+}

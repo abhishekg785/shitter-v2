@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Shitter</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: helvetica, arial, sans-serif;
+                margin: 25px;
+            }
+
+            h1 {
+                font-weight: bold;
+                color: rgb(46, 46, 151);
+            }
+
+            p {
+                max-width: 600px;
+            }
+
+            footer > a {
+                color: #BBBBBB;
+            }
+
+            .tweet {
+                padding: 1em;
+                margin: 1em 0;
+                border: 1px solid rgb(46, 46, 151);
+            }
+
+            .nicejob {
+                text-decoration: line-through;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Shitter</h1>
+        </header>
+        <main>
+            <form id="new-tweet">
+                <label for="newTweetContent">
+                    <input type="text" id="newTweetContent" name="content">
+                </label>
+                <input type="submit">
+            </form>
+            <section id="tweets"></section>
+        </main>
+        <script src="https://unpkg.com/idb@4.0.4/build/iife/index-min.js"></script>
+        <script src="db.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
